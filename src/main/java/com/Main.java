@@ -19,7 +19,6 @@ public class Main {
         output.write(sHexCipherText.getBytes());
         output.close();
         inputStream.close();
-
         File file2 = new File("./src/main/resources/encrypt.txt");
         InputStream inputStream2 = new FileInputStream(file2);
         sHexCipherText = IOUtils.toString(new FileInputStream(file2));
