@@ -13,28 +13,19 @@ public class Main {
         int iBitSize = makeLengthDevBy8(plaintext.getBytes().length);
         RSA rsa = new RSA(iBitSize);
         String sHexCipherText = rsa.encryptPlainStrToHex(plaintext);
-        String sPlainText = rsa.decryptHexCipherToPlainMsg(sHexCipherText);
-        System.out.println("\n\n\nCipherText: " + sHexCipherText);
-        System.out.println("\nPlainText/Original message: " + sPlainText);
-
-
+        System.out.println("Encrypted text:  "+sHexCipherText);
         File file = new File("./src/main/resources/encrypt.txt");
         OutputStream output = new FileOutputStream(file);
         output.write(sHexCipherText.getBytes());
         output.close();
         inputStream.close();
 
-
         File file2 = new File("./src/main/resources/encrypt.txt");
         InputStream inputStream2 = new FileInputStream(file2);
-        byte[] bytes = IOUtils.toByteArray(new FileInputStream(file2));
-//        byte[] bytesDivBy82 = new byte[length2];
-//        System.arraycopy(bytes2,0,bytesDivBy82,0,bytes2.length);
-//        byte[] decrypt = des2.decrypt(bytesDivBy82);
-//        System.out.println(new String(decrypt));
+        sHexCipherText = IOUtils.toString(new FileInputStream(file2));
+        String sPlainText = rsa.decryptHexCipherToPlainMsg(sHexCipherText);
+        System.out.println("Decrypted text:  "+sPlainText);
         inputStream2.close();
-
-
     }
     private static int makeLengthDevBy8(int nrBytes){
         while(nrBytes%8!=0)++nrBytes;

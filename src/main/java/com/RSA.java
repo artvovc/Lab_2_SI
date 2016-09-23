@@ -24,13 +24,13 @@ public class RSA {
             } while (true);
             m_cBiPrivateKey = m_cBiPublicKey.modInverse(m_cBiPhiN);//de ≡ 1 (mod ϕ(n)).
         }
-        System.out.println("Bit=" + iBitsize);
-        System.out.println("P=" + m_cBiPrimeP.toString());
-        System.out.println("Q=" + m_cBiPrimeQ.toString());
-        System.out.println("n=" + m_cBiModN.toString());
-        System.out.println("phiN=" + m_cBiPhiN.toString());
-        System.out.println("e=" + m_cBiPublicKey.toString());
-        System.out.println("d=" + m_cBiPrivateKey.toString());
+//        System.out.println("Bit=" + iBitsize);
+//        System.out.println("P=" + m_cBiPrimeP.toString());
+//        System.out.println("Q=" + m_cBiPrimeQ.toString());
+//        System.out.println("n=" + m_cBiModN.toString());
+//        System.out.println("phiN=" + m_cBiPhiN.toString());
+//        System.out.println("e=" + m_cBiPublicKey.toString());
+//        System.out.println("d=" + m_cBiPrivateKey.toString());
     }
 
     public BigInteger GetPrivateKey() {
