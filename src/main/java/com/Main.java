@@ -10,8 +10,8 @@ public class Main {
 
         InputStream inputStream = Main.class.getResourceAsStream("/decrypt.txt");
         String plaintext = IOUtils.toString(inputStream, "UTF-8");
-        int iBitSize = makeLengthDevBy8(plaintext.getBytes().length);
-        RSA rsa = new RSA(iBitSize);
+        int TextSize = makeLengthDevBy8(plaintext.getBytes().length);
+        RSA rsa = new RSA(TextSize);
         String sHexCipherText = rsa.encryptPlainStrToHex(plaintext);
         System.out.println("Encrypted text:  "+sHexCipherText);
         File file = new File("./src/main/resources/encrypt.txt");
