@@ -12,7 +12,7 @@ public class Main {
         String plaintext = IOUtils.toString(inputStream, "UTF-8");
         int TextSize = makeLengthDevBy8(plaintext.getBytes().length);
         RSA rsa = new RSA(TextSize);
-        String sHexCipherText = rsa.encryptPlainStrToHex(plaintext);
+        String sHexCipherText = rsa.encryptText(plaintext);
         System.out.println("Encrypted text:  "+sHexCipherText);
         File file = new File("./src/main/resources/encrypt.txt");
         OutputStream output = new FileOutputStream(file);
@@ -22,7 +22,7 @@ public class Main {
         File file2 = new File("./src/main/resources/encrypt.txt");
         InputStream inputStream2 = new FileInputStream(file2);
         sHexCipherText = IOUtils.toString(new FileInputStream(file2));
-        String sPlainText = rsa.decryptHexCipherToPlainMsg(sHexCipherText);
+        String sPlainText = rsa.decryptText(sHexCipherText);
         System.out.println("Decrypted text:  "+sPlainText);
         inputStream2.close();
     }
